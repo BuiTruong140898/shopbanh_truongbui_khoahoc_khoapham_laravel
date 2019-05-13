@@ -10,10 +10,12 @@ use App\Product;
 
 use App\ProductType;
 
+use App\cart;
 
+use Session;
 class PageController extends Controller
 {
-    public function getIndex(){
+    public function getindex(){
         $slide = Slide::all();
         $new_product = Product::where('new',1)->paginate(8, ['*'], 'page_article');
         $promotion_product = Product::where('promotion_price','<>',0)->paginate(4, ['*'], 'page_articl');
@@ -30,7 +32,7 @@ class PageController extends Controller
 
     public function getChiTietSP(Request $req){
     	$sanpham = Product::where('id',$req->id)->first();
-    	$sp_cungloai = Product::where('id_type',$sanpham->id_type)->paginate(3, ['*'], 'page_artile');
+    	$sp_cungloai = Product::where('id_type',$sanpham->id_type)->paginate(3, ['*'], 'page_artle');
     	return view('page.chitiet_sanpham', compact('sanpham','sp_cungloai'));
     }
 
@@ -40,6 +42,15 @@ class PageController extends Controller
 
     public function getGioiThieu(){
     	return view('page.gioithieu');
+    }
+
+    public function getthemgiohang(Request $req,$id){
+    	$product = Product::find($id);
+    	$oldCart = Session('cart')?Session::get('cart'):null;
+    	$cart = new Cart($oldCart);
+    	$cart->add($product, $id);
+    	$req->Session()->put('cart',$cart);
+    	return redirect()->back();
     }
 }
 

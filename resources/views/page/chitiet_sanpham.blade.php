@@ -124,6 +124,7 @@
 							@endforeach
 						</div>
 						{{-- <div class="row">{{$sp_cungloai->links()}}</div> --}}
+						{{$sp_cungloai->links()}} 
 					</div> <!-- .beta-products-list -->
 				</div>
 				<div class="col-sm-3 aside">
