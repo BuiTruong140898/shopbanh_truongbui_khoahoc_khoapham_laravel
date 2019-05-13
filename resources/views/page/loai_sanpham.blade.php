@@ -3,11 +3,11 @@
 	<div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h6 class="inner-title">Sản phẩm</h6>
+				<h6 class="inner-title">{{$loai_dang_xem->name}}</h6>
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="index.html">Home</a> / <span>Sản phẩm</span>
+					<a href="index.html">Home</a> / <span>Loại sản phẩm</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -20,34 +20,14 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<ul class="aside-menu">
-							<li><a href="#">Typography</a></li>
-							<li><a href="#">Buttons</a></li>
-							<li><a href="#">Dividers</a></li>
-							<li><a href="#">Columns</a></li>
-							<li><a href="#">Icon box</a></li>
-							<li><a href="#">Notifications</a></li>
-							<li><a href="#">Progress bars and Skill meter</a></li>
-							<li><a href="#">Tabs</a></li>
-							<li><a href="#">Testimonial</a></li>
-							<li><a href="#">Video</a></li>
-							<li><a href="#">Social icons</a></li>
-							<li><a href="#">Carousel sliders</a></li>
-							<li><a href="#">Custom List</a></li>
-							<li><a href="#">Image frames &amp; gallery</a></li>
-							<li><a href="#">Google Maps</a></li>
-							<li><a href="#">Accordion and Toggles</a></li>
-							<li class="is-active"><a href="#">Custom callout box</a></li>
-							<li><a href="#">Page section</a></li>
-							<li><a href="#">Mini callout box</a></li>
-							<li><a href="#">Content box</a></li>
-							<li><a href="#">Computer sliders</a></li>
-							<li><a href="#">Pricing &amp; Data tables</a></li>
-							<li><a href="#">Process Builders</a></li>
+							@foreach($loai as $loai)
+								<li><a href="{{route('loaisanpham',$loai->id)}}">{{$loai->name}}</a></li>
+							@endforeach
 						</ul>
 					</div>
 					<div class="col-sm-9">
 						<div class="beta-products-list">
-							<h4>Ten loai san pham</h4>
+							<h4>Sản phẩm bán chạy</h4>
 							<div class="beta-products-details">
 								<p class="pull-left">Tìm thấy {{count($sp_theoloai)}} sản phẩm</p>
 								<div class="clearfix"></div>
@@ -95,7 +75,7 @@
 						<div class="beta-products-list">
 							<h4>Sản phẩm khác</h4>
 							<div class="beta-products-details">
-								<p class="pull-left">{{$sp_khac->total()}}</p>
+								<p class="pull-left">Tìm thấy {{$sp_khac->total()}} sản phẩm</p>
 								<div class="clearfix"></div>
 							</div>
 							<div class="row">
@@ -135,8 +115,8 @@
 
 							</div>
 
-							{{-- <div class='row'>{{$sp_khac->links()}}</div> --}}
-
+{{-- 							<div class='row'>{{$sp_khac->links()}}</div>
+ --}}
 							<div class="space40">&nbsp;</div>
 							
 						</div> <!-- .beta-products-list -->
