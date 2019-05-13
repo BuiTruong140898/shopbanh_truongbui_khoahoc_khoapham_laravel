@@ -39,12 +39,21 @@
 								@foreach($product_cart as $product_cart)
 
 									<div class="cart-item">
+										<a class="cart-item-delete" href="{{ route('xoagiohang',$product_cart['item']['id']) }}"><i class="fa fa-times"></i></a>
 									<div class="media">
 										<a class="pull-left" href="#"><img src="source/image/product/{{$product_cart['item']['image']}}" alt=""></a>
 										<div class="media-body">
 											<span class="cart-item-title">{{$product_cart['item']['name']}}</span>
 											<span class="cart-item-options">Size: XS; Colar: Navy</span>
-											<span class="cart-item-amount">{{$product_cart['qty']}}*<span>{{$product_cart['item']['unit_price']}}</span></span>
+											<span class="cart-item-amount">{{$product_cart['qty']}}*<span>
+												
+												@if($product_cart['item']['promotion_price'])
+													{{$product_cart['item']['promotion_price']}}
+												@else
+													{{$product_cart['item']['unit_price']}}
+												@endif
+
+											</span></span>
 										</div>
 									</div>
 									</div>

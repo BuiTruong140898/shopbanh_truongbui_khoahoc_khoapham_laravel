@@ -52,5 +52,18 @@ class PageController extends Controller
     	$req->Session()->put('cart',$cart);
     	return redirect()->back();
     }
+
+    public function getxoagiohang(Request $req,$id){
+    	$oldCart = session::has('cart')?Session::get('cart'):null;
+    	$cart = new Cart($oldCart);
+    	$cart->removeItem($id);
+    	if($cart->items>0){
+	    	Session::put('cart',$cart);
+	    }
+	    else{
+	    	Session::forget('cart');
+	    }
+    	return redirect()->back();
+    }
 }
 
