@@ -111,5 +111,13 @@ class PageController extends Controller
 	    return redirect()->back()->with('thongbao','Đặt hàng thành công');
   
     }
+
+    public function getDangNhap(){
+    	return view('page.dangnhap');
+    }
+
+    public function getDangKy(){
+    	return view('page.dangky');
+    }
 }
 

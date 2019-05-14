@@ -59,3 +59,13 @@ route::post('Thong-tin-dat-hang',[
 	'as'=>'thongtindathang',
 	'uses'=>'PageController@postThongTinDatHang'
 ]);
+
+Route::get('dang-nhap',[
+	'as'=>'dangnhap',
+	'uses'=>'PageController@getDangNhap'
+]);
+
+Route::get('dang-ky',[
+	'as'=>'dangky',
+	'uses'=>'PageController@getDangky'
+]);
