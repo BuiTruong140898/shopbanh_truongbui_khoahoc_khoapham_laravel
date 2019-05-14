@@ -42,10 +42,20 @@ Route::get('gioi-thieu',[
 
 Route::get('them_vao_gio_hang/{id}',[
 	'as'=>'themvaogiohang',
-	'uses'=>"PageController@getthemgiohang"
+	'uses'=>"PageController@getThemGioHang"
 ]);
 
 Route::get('xoa_gio_hang/{id}',[
 	'as'=>'xoagiohang',
-	'uses'=>'PageController@getXoagiohang'
+	'uses'=>'PageController@getXoaGioHang'
+]);
+
+Route::get('dat-hang',[
+	'as'=>'dathang',
+	'uses'=>'PageController@getDatHang'
+]);
+
+route::post('Thong-tin-dat-hang',[
+	'as'=>'thongtindathang',
+	'uses'=>'PageController@postThongTinDatHang'
 ]);
