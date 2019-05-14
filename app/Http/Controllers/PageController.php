@@ -20,6 +20,10 @@ use App\Bill;
 
 use App\BillDetail;
 
+use App\User;
+
+use Hash;
+
 class PageController extends Controller
 {
     public function getindex(){
@@ -118,6 +122,36 @@ class PageController extends Controller
 
     public function getDangKy(){
     	return view('page.dangky');
+    }
+
+    public function postDangKy(Request $req){
+    	$this->validate($req,
+    		[
+    			'email'=>'required|email|unique:users,email',
+    			'password'=>'required|min:6|max:20',
+    			'full_name'=>'required',
+    			're_password'=>'required|same:password'
+    		],
+    		[
+    			'email.required'=>'Vui lòng nhập lại email',
+    			'email.email'=>'Email không đúng định dạng',
+    			'email.unique'=>'Email đã tồn tại',
+    			'password.required'=>'Vui lòng nhập lại mật khẩu',
+    			're_password.same'=>'Mật khẩu xác nhận không khớp',
+    			'password.min'=>'Vui lòng nhập mật khẩu từ 6-20 kí tự',
+    			'password.max'=>'Vui lòng nhập mật khẩu từ 6-20 kí tự',
+
+    		]
+    	);
+    	$user = new User;
+    	$user->full_name = $req->full_name;
+    	$user->email = $req->email;
+    	$user->phone = $req->phone;
+    	$user->address = $req->address;
+    	$user->password = Hash::make($req->password);
+    	$user->save();
+    	return redirect()->back()->with('thanhcong','Tạo tài khoản thành công'); 
+    	
     }
 }
 

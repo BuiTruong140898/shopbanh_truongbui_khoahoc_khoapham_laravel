@@ -55,7 +55,7 @@ Route::get('dat-hang',[
 	'uses'=>'PageController@getDatHang'
 ]);
 
-route::post('Thong-tin-dat-hang',[
+Route::post('Thong-tin-dat-hang',[
 	'as'=>'thongtindathang',
 	'uses'=>'PageController@postThongTinDatHang'
 ]);
@@ -68,4 +68,9 @@ Route::get('dang-nhap',[
 Route::get('dang-ky',[
 	'as'=>'dangky',
 	'uses'=>'PageController@getDangky'
+]);
+
+Route::post('dang-ky',[
+	'as'=>'dangky',
+	'uses'=>'PageController@postDangKy'
 ]);
