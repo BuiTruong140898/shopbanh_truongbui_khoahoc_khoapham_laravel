@@ -123,6 +123,7 @@ class PageController extends Controller
     public function getDangKy(){
     	return view('page.dangky');
     }
+<<<<<<< HEAD
 
     public function postDangKy(Request $req){
     	$this->validate($req,
@@ -153,5 +154,7 @@ class PageController extends Controller
     	return redirect()->back()->with('thanhcong','Tạo tài khoản thành công'); 
     	
     }
+=======
+>>>>>>> 217865a... cut login layout and signup layout
 }
 
