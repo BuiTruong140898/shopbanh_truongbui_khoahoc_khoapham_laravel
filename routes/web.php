@@ -68,12 +68,14 @@ Route::get('dang-nhap',[
 Route::get('dang-ky',[
 	'as'=>'dangky',
 	'uses'=>'PageController@getDangky'
-<<<<<<< HEAD
 ]);
 
 Route::post('dang-ky',[
 	'as'=>'dangky',
 	'uses'=>'PageController@postDangKy'
-=======
->>>>>>> 217865a... cut login layout and signup layout
+]);
+
+Route::post('dang-nhap',[
+'as'=>'dangnhap',
+'uses'=>"PageController@postDangNhap"
 ]);

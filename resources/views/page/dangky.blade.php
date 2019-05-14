@@ -16,8 +16,6 @@
 	
 	<div class="container">
 		<div id="content">
-			
-<<<<<<< HEAD
 			<form action="{{route('dangky')}}" method="post" class="beta-form-checkout">
 				<input type="hidden" name="_token" value="{{csrf_token()}}
 				" >
@@ -41,11 +39,10 @@
 
 
 
-=======
+
 			<form action="#" method="post" class="beta-form-checkout">
 				<div class="row">
 					<div class="col-sm-3"></div>
->>>>>>> 217865a... cut login layout and signup layout
 					<div class="col-sm-6">
 						<h4>Đăng kí</h4>
 						<div class="space20">&nbsp;</div>
@@ -53,35 +50,28 @@
 						
 						<div class="form-block">
 							<label for="email">Email address*</label>
-<<<<<<< HEAD
+
 							<input type="email" id="email" name='email' required>
-=======
-							<input type="email" id="email" required>
->>>>>>> 217865a... cut login layout and signup layout
+
 						</div>
 
 						<div class="form-block">
 							<label for="your_last_name">Fullname*</label>
-<<<<<<< HEAD
+
 							<input type="text" id="your_last_name" name='full_name' required>
-=======
-							<input type="text" id="your_last_name" required>
->>>>>>> 217865a... cut login layout and signup layout
+
 						</div>
 
 						<div class="form-block">
 							<label for="adress">Address*</label>
-<<<<<<< HEAD
+
 							<input type="text" name="address" id="adress" placeholder="Street Address" required>
-=======
-							<input type="text" id="adress" value="Street Address" required>
->>>>>>> 217865a... cut login layout and signup layout
+
 						</div>
 
 
 						<div class="form-block">
 							<label for="phone">Phone*</label>
-<<<<<<< HEAD
 							<input type="text" id="phone" name='phone' required>
 						</div>
 						<div class="form-block">
@@ -91,18 +81,8 @@
 						<div class="form-block">
 							<label for="phone">Re password*</label>
 							<input type="password" id="phone" name='re_password' required>
-=======
-							<input type="text" id="phone" required>
 						</div>
-						<div class="form-block">
-							<label for="phone">Password*</label>
-							<input type="text" id="phone" required>
-						</div>
-						<div class="form-block">
-							<label for="phone">Re password*</label>
-							<input type="text" id="phone" required>
->>>>>>> 217865a... cut login layout and signup layout
-						</div>
+						
 						<div class="form-block">
 							<button type="submit" class="btn btn-primary">Register</button>
 						</div>

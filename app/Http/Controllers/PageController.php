@@ -24,6 +24,8 @@ use App\User;
 
 use Hash;
 
+use Auth;
+
 class PageController extends Controller
 {
     public function getindex(){
@@ -123,7 +125,6 @@ class PageController extends Controller
     public function getDangKy(){
     	return view('page.dangky');
     }
-<<<<<<< HEAD
 
     public function postDangKy(Request $req){
     	$this->validate($req,
@@ -152,9 +153,28 @@ class PageController extends Controller
     	$user->password = Hash::make($req->password);
     	$user->save();
     	return redirect()->back()->with('thanhcong','Tạo tài khoản thành công'); 
-    	
     }
-=======
->>>>>>> 217865a... cut login layout and signup layout
+
+    public function postDangNhap(Request $req){
+    	$this->validate($req,[
+    		'email'=>'required|email',
+    		'password'=>'required|min:6|max:20'
+    	],
+    	[
+    		'email.required'=>'Vui lòng nhập email',
+    		'email.email'=>'Email không đúng định dạng',
+    		'password.required'=>"Vui lòng nhập mật khẩu",
+    		'password.min'=>'Mật khẩu phải có ít nhất 6 kí tự',
+    		'password.max'=>'Mật khẩu phải có không quá 20 kí tự'
+    	]
+    );
+    $credentails = array('email'=>$req->email,'password'=>$req->password);
+    if(Auth::attempt($credentails)){
+    	return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
+    }	
+    else{
+    	return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập thất bại']);
+    }
+    }
 }
 
