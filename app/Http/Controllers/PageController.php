@@ -176,5 +176,15 @@ class PageController extends Controller
     	return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập thất bại']);
     }
     }
+
+    public function getDangXuat(){
+    	Auth::logout();
+    	return redirect()->route('trang-chu');
+    }
+
+    public function getTimKiem(Request $req){
+    	$ketquatimkiem = Product::where('name','like','%'.$req->key.'%')->orWhere('unit_price',$req->key)->get();
+    	return view('page.ketquatimkiem',compact('ketquatimkiem'));
+    }
 }
 

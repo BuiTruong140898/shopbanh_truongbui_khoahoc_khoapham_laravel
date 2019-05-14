@@ -79,3 +79,13 @@ Route::post('dang-nhap',[
 'as'=>'dangnhap',
 'uses'=>"PageController@postDangNhap"
 ]);
+
+Route::get('dang-xuat',[
+	'as'=>'dangxuat',
+	'uses'=>'PageController@getDangXuat'
+]);
+
+Route::get('tim-kiem',[
+	'as'=>'timkiem',
+	'uses'=>'PageController@getTimKiem'
+]);
