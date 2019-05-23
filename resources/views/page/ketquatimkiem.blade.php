@@ -51,6 +51,10 @@
 							</div>
 
 							{{-- <div class='row'>{{$ketquatimkiem->links()}}</div> --}}
+							<div style="text-align: center;">
+			                  {{-- {{$tintuc->links()}} --}}
+			                  {{ $ketquatimkiem->appends(Request::all())->links() }}
+			                </div>    
 
 						</div> <!-- .beta-products-list -->
 

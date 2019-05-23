@@ -183,7 +183,7 @@ class PageController extends Controller
     }
 
     public function getTimKiem(Request $req){
-    	$ketquatimkiem = Product::where('name','like','%'.$req->key.'%')->orWhere('unit_price',$req->key)->get();
+    	$ketquatimkiem = Product::where('name','like','%'.$req->key.'%')->orWhere('unit_price',$req->key)->paginate(8);
     	return view('page.ketquatimkiem',compact('ketquatimkiem'));
     }
 }
