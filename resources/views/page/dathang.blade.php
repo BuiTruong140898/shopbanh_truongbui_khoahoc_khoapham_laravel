@@ -16,7 +16,20 @@
 	
 	<div class="container">
 		<div id="content">
-			
+			{{-- thongbao --}}
+			@if(count($errors)>0)
+				<div class="alert alert-danger">
+					@foreach($errors->all() as $error)
+						{{$error}}
+					@endforeach
+				</div>
+
+			@endif
+
+			@if(Session('thongbao'))
+				<div class="alert alert-success">{{Session::get('thongbao')}}</div>
+			@endif
+            {{-- #thongbao --}}
 			<form action="{{route('thongtindathang')}}" method="post" class="beta-form-checkout">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="row">
@@ -41,7 +54,7 @@
 						</div>
 
 						<div class="form-block">
-							<label for="adress">Địa chỉ*</label>
+							<label for="address">Địa chỉ*</label>
 							<input type="text" id="address" name="address" placeholder="Street Address" required>
 						</div>
 						

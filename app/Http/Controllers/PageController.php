@@ -115,7 +115,6 @@ class PageController extends Controller
 	    }
 	    Session::forget('cart');
 	    return redirect()->back()->with('thongbao','Đặt hàng thành công');
-  
     }
 
     public function getDangNhap(){
