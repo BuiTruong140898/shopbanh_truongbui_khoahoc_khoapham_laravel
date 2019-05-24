@@ -94,7 +94,7 @@ class PageController extends Controller
     	$customer->email = $req->email;
     	$customer->address = $req->address;
     	$customer->phone_number = $req->phone_number;
-    	$customer->note =$req->note;
+    	$customer->note = isset($req->note)?$req->note:'';
     	$customer->save();
 
     	$bill = new bill;
