@@ -16,8 +16,17 @@
 	
 	<div class="container">
 		<div id="content">
-			
-			<form action="#" method="post" class="beta-form-checkout">
+			{{-- thongbao --}}
+			@if(count($errors)>0)
+				<div class="alert alert-danger">
+					@foreach($errors->all() as $error)
+						{{$error}}
+					@endforeach
+				</div>
+			@endif
+            {{-- #thongbao --}}
+			<form action="{{ route('dangnhap') }}" method="post" class="beta-form-checkout">
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="row">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-6">
@@ -27,11 +36,11 @@
 						
 						<div class="form-block">
 							<label for="email">Email address*</label>
-							<input type="email" id="email" required>
+							<input type="email" id="email" name="email" required>
 						</div>
 						<div class="form-block">
 							<label for="phone">Password*</label>
-							<input type="text" id="phone" required>
+							<input type="text" id="password" name="password" required>
 						</div>
 						<div class="form-block">
 							<button type="submit" class="btn btn-primary">Login</button>

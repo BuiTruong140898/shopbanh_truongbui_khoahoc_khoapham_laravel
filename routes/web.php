@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('index',[
-	'as'=>'trang-chu',
+	'as'=>'trangchu',
 	'uses'=>'PageController@getIndex'
 ]);
 
@@ -65,6 +65,11 @@ Route::get('dang-nhap',[
 	'uses'=>'PageController@getDangNhap'
 ]);
 
+Route::post('dang-nhap',[
+'as'=>'dangnhap',
+'uses'=>"PageController@postDangNhap"
+]);
+
 Route::get('dang-ky',[
 	'as'=>'dangky',
 	'uses'=>'PageController@getDangky'
@@ -73,11 +78,6 @@ Route::get('dang-ky',[
 Route::post('dang-ky',[
 	'as'=>'dangky',
 	'uses'=>'PageController@postDangKy'
-]);
-
-Route::post('dang-nhap',[
-'as'=>'dangnhap',
-'uses'=>"PageController@postDangNhap"
 ]);
 
 Route::get('dang-xuat',[

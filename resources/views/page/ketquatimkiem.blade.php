@@ -9,7 +9,7 @@
 						<div class="beta-products-list">
 							<h4>Kết quả tìm kiếm</h4>
 							<div class="beta-products-details">
-								<p class="pull-left">Tìm thấy {{count($ketquatimkiem)}} sản phẩm</p>
+								<p class="pull-left">Tìm thấy {{$ketquatimkiem->total()}} sản phẩm</p>
 								<div class="clearfix"></div>
 							</div>
 
@@ -50,12 +50,8 @@
 
 							</div>
 
-							{{-- <div class='row'>{{$ketquatimkiem->links()}}</div> --}}
-							<div style="text-align: center;">
-			                  {{-- {{$tintuc->links()}} --}}
-			                  {{ $ketquatimkiem->appends(Request::all())->links() }}
-			                </div>    
-
+							<div style="text-align: center" class='row'>{{$ketquatimkiem->links()}}</div>
+							
 						</div> <!-- .beta-products-list -->
 
 						<div class="space50">&nbsp;</div>

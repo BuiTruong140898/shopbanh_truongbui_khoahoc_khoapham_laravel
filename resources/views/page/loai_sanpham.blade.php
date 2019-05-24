@@ -7,7 +7,7 @@
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="index.html">Home</a> / <span>Loại sản phẩm</span>
+					<a href="{{ route('trangchu') }}">Home</a> / <span>Loại sản phẩm</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -43,7 +43,7 @@
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 									@endif
 										<div class="single-item-header">
-											<a href="{{route('chitietsanpham')}}"><img height="250px" src="source/image/product/{{$sp_theoloai->image}}" alt=""></a>
+											<a href="{{route('chitietsanpham',$sp_theoloai->id)}}"><img height="250px" src="source/image/product/{{$sp_theoloai->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$sp_theoloai->name}}</p>
@@ -88,7 +88,7 @@
 										<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 									@endif
 										<div class="single-item-header">
-											<a href="{{route('chitietsanpham')}}"><img height="250px" src="source/image/product/{{$sp_khac->image}}" alt=""></a>
+											<a href="{{route('chitietsanpham',$sp_khac->id)}}"><img height="250px" src="source/image/product/{{$sp_khac->image}}" alt=""></a>
 										</div>
 										<div class="single-item-body">
 											<p class="single-item-title">{{$sp_khac->name}}</p>
@@ -115,8 +115,11 @@
 
 							</div>
 
-{{-- 							<div class='row'>{{$sp_khac->links()}}</div>
- --}}
+							{{-- <div class='row'>{{$sp_khac->links()}}</div> --}}
+							 {{-- <div style="text-align: center;">
+                  
+			                  {{ $sp_khac->appends(Request::all())->links() }}
+			                </div>  --}}   
 							<div class="space40">&nbsp;</div>
 							
 						</div> <!-- .beta-products-list -->

@@ -21,7 +21,7 @@
 				" >
 				<div class="row">
 					<div class="col-sm-3"></div>
-
+                    {{-- thongbao --}}
 					@if(count($errors)>0)
 						<div class="alert alert-danger">
 							@foreach($errors->all() as $error)
@@ -33,12 +33,8 @@
 
 					@if(Session('thanhcong'))
 						<div class="alert alert-success">{{Session::get('thanhcong')}}</div>
-
-
 					@endif
-
-
-
+                    {{-- #thongbao --}}
 
 			<form action="#" method="post" class="beta-form-checkout">
 				<div class="row">

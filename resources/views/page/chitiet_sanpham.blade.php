@@ -7,7 +7,7 @@
 			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb font-large">
-					<a href="index.html">Home</a> / <span>Product</span>
+					<a href="{{ route('trangchu') }}">Home</a> / <span>Product</span>
 				</div>
 			</div>
 			<div class="clearfix"></div>
@@ -66,7 +66,7 @@
 									<option value="4">4</option>
 									<option value="5">5</option>
 								</select>
-								<a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+								<a class="add-to-cart" href="{{ route('themvaogiohang',$sanpham->id) }}"><i class="fa fa-shopping-cart"></i></a>
 								<div class="clearfix"></div>
 							</div>
 						</div>
@@ -124,7 +124,10 @@
 							@endforeach
 						</div>
 						{{-- <div class="row">{{$sp_cungloai->links()}}</div> --}}
-						{{$sp_cungloai->links()}} 
+						{{-- {{$sp_cungloai->links()}}  --}}
+						 {{-- <div style="text-align: center;"> 
+		                     {{ $sp_cungloai->appends(Request::all())->links() }}
+		                </div> --}}    
 					</div> <!-- .beta-products-list -->
 				</div>
 				<div class="col-sm-3 aside">

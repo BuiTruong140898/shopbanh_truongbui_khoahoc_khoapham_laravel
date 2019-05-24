@@ -170,7 +170,7 @@ class PageController extends Controller
     );
     $credentails = array('email'=>$req->email,'password'=>$req->password);
     if(Auth::attempt($credentails)){
-    	return redirect()->back()->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
+    	return redirect()->route('trangchu');
     }	
     else{
     	return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập thất bại']);
